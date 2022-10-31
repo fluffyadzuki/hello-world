@@ -1,0 +1,218 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer, amsmath, xcolor}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+
+\usepackage{kotex}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{The Surprisingly Swift Decline of US Manufacturing Employment}
+\subtitle{pierce \& schott}
+\date{\today}
+\author{presenter: 김채원, 김형철, 하준서, 한서우, 홍지수}
+\institute{school of economics, yonsei university}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\section{motivation}
+
+\begin{frame}{the ``great fall"}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth, height=7cm]{manu_fall}	
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{sharp decline of US manufacturing employment after \\the new millennium}
+
+	\begin{itemize}
+		\item US manufacturing employment fluctuated around 18 million workers between 1965 and 2000 before plunging \textbf{\textcolor{red}{18 percent} from March 2001 to March 2007}.
+		\item There were many discussions on the main driver for this shock
+		\item This paper strives to link the fall of manufacturing employment to change in US trade policy (NTR).
+		\item this phenomena is now named \textcolor{red}{china shock or china syndrome.}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{background on US trade policy: NTR (normal trade relation)}
+	\begin{itemize}
+		\item under Smoot-Hawley Tariff Act of 1930, US imported from nonmarket economies such as China are subject to relatively high tariff rates. \textbf{(non-NTR rates)} \textcolor{gray}{exogenous.}
+		\item however, the US Trade Act of 1974 allows the President of the United States to grant \textbf{NTR tariff rates} to non-market economies on an annually renewable basis subject to approval by the US Congress, and US presidents began granting such waivers to China annually in 1980. 
+		\item while these waivers kept the tariff rates applied to Chinese goods low, the need for annual approval by Congress created \textbf{\textcolor{red}{uncertainty}} about whether the low tariffs would continue. 
+		\item This uncertainty vanished as China was granted PNTR when joining WTO.
+	\end{itemize}
+\end{frame}
+
+\section{brief results}
+
+\begin{frame}{impact of elimination of NTR Gap on manufacturing\\ employment}
+	\begin{itemize}
+		\item This gap of uncertainty between NTR rate and non NTR rate\\ \textbf{(NTR Gap)} is quantified to reveal the impact of trade uncertainty on employment in manufacturing industries.
+		\item generalized difference-in-differences identification strategy exploits this cross-sectional variation in the NTR gap to test whether employment in manufacturing industries with higher NTR gaps (first difference) is lower after the change in policy relative to employment in the pre-PNTR era (second difference).
+		\item Regression results reveal a \textbf{\textcolor{red}{negative relationship}} between the change in US policy and subsequent employment in manufacturing.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{brief results}
+	\begin{itemize}
+		\item industries more exposed to the change experience greater employment loss, increased imports from China, and higher entry by US importers and foreign-owned Chinese exporters.
+		\item results are robust to controlling for other US economic developments contemporaneous with PNTR and there is no similar reaction in other regions (eg. EU) where policy did not change.
+	\end{itemize}
+
+\end{frame}
+
+\section{literature}
+
+\begin{frame}[fragile]{literature and contribution}
+	literature goes here
+\end{frame}
+
+\section{data}
+
+\begin{frame}[fragile]{measuring the effect of PNTR: the NTR gap}
+	\begin{itemize}
+		\item in October 2000, China was granted PNTR status by US Congress.
+		\item Change in China's PNTR status has two effects:
+			\begin{enumerate}
+				\item it ended uncertainty associated with annual renewals of China's NTR status. \hyperlink{uncertainty}{\beamerbutton{uncertainty}}
+				\item it led to a substantial reduction in expected US import tariffs on Chinese goods.
+			\end{enumerate}
+	\end{itemize}
+	
+	\begin{itemize}
+		\item \textbf{calculate the NTR gap}: we quantify the impact of PNTR on industry $i$ as difference between non-NTR rate to NTR rate\\ (year 1999) \hyperlink{distribution}{\beamerbutton{distribution}}
+	\end{itemize}
+	$$NTR\,Gap_i=Non\,NTR\,Rate_i-NTR\,Rate_i$$
+\end{frame}
+
+\begin{frame}{US manufacturing employment}
+	\begin{itemize}
+		\item principal source of data is the US Census Bureau’s Longitudinal Business Database (LBD), assembled and maintained\\ by Jarmin and Miranda (2002). 
+		\item these data track the employment and major industry of virtually every establishment \hyperlink{establishment}{\beamerbutton{establishment}} with employment in the non-farm private US economy annually.
+		\item the paper constructed a “constant manufacturing sample” that excludes any families that contain SIC or NAICS industries that are ever classified outside manufacturing. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{data to control for alternate explanations}
+	\begin{itemize}
+		\item the paper also considered a wide array of alternate explanations for the observed decline in US manufacturing employment. 
+		\item paper provides three main classes of alternate explanations and take them into account: \textbf{1) a decline in the US competitiveness of labor-intensive goods \hyperlink{labor}{\beamerbutton{labor}}, 2) policy changes in China \hyperlink{china}{\beamerbutton{china}}, and 3) other notable macroeconomic events in the United States.} \hyperlink{other}{\beamerbutton{other}}
+		\item for these alternate explanations to be plausible, they must explain why the decline in employment coincides with the timing of PNTR and why it is concentrated in industries most affected by the policy change.
+		\item a more detailed information is omitted for time constraint.
+	\end{itemize}
+\end{frame}
+
+\section{PNTR and US manufacturing employment}
+
+\begin{frame}{baseline specification}
+	\begin{itemize}
+	\item we check the link between PNTR and US manufacturing employment using a generalized OLS Diff-in-Diff specification that examines whether employment losses in industries with higher NTP gaps (first diff) are larger after the imposition of PNTR (second diff).
+	\item estimate following equation:
+	\end{itemize}
+		$$ln(Emp)_{it}=\theta PostPNTR_t \, x \, NTRGap_i+PostPNTR_t \, x \, X'_i\gamma +X'_{it}\lambda+\delta_t+\delta_i+\alpha+\varepsilon_{it}$$
+	\begin{itemize}
+	\item $ln(Emp)_{it}$: log level of employment in industry $i$ in year $t$.
+	\item $\theta PostPNTR_t \, x \, NTRGap_i$: interaction of NTR gap and indicator for post-PNTR period.
+	\item $PostPNTR_t \, x \, X'_i\gamma$: allows possibility of relationship change between employment and time-invariant characteristics.
+	\item $X'_{it}\lambda$: time-varying characteristics.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{baseline specification: results table}
+  \begin{columns}
+    \column{0.5\textwidth}
+\begin{itemize}
+	\item first column: only include DID term and necessary fixed effects.
+	\item second column: adds industry initial factor intensities.
+	\item third column: includes all covariates capturing the effect of alternate explanations.
+	\item estimates of $\theta$ are all negative and statistically significant.
+\end{itemize}
+
+    \column{0.46\textwidth}
+
+ 	\begin{figure}
+ 		\includegraphics[width=\textwidth, height=0.8\textheight]{table1}	
+ 	\end{figure}
+
+  \end{columns}
+\end{frame}
+
+\section{extra slides}
+
+\begin{frame}{severity of uncertainty in US-China trade}
+\label{uncertainty}
+	  \begin{columns}
+    \column{0.5\textwidth}
+\begin{itemize}
+	\item US House of Representatives introduced and voted on legislation to revoke China’s temporary NTR status every year from 1990 to 2001.
+	\item from 1990 to 2001, the average House vote against annual NTR renewal was 38 percent.
+	\item Anecdotal evidence indicates that congressional threats to withdraw China’s NTR status were taken seriously 
+	\item estimates of $\theta$ are all negative and statistically significant.
+\end{itemize}
+
+    \column{0.46\textwidth}
+
+ 	\begin{figure}
+ 		\includegraphics[width=\textwidth, height=0.8\textheight]{uncertainty}	
+ 	\end{figure}
+
+  \end{columns}
+\end{frame}
+
+\begin{frame}{distribution of NTR Gap in manufacturing industry}
+\label{distribution}
+
+ 	\begin{figure}
+ 		\includegraphics[width=0.8\textwidth, height=0.8\textheight]{distribution}	
+ 	\end{figure}
+
+\end{frame}
+
+\begin{frame}{establishment definition}
+	\label{establishment}
+	“establishments” correspond to facilities in a given geographic location, such as a manufacturing plant or retail outlet, and their major industry is defined at the four-digit Standard Industrial Classification (SIC) or six-digit North American Industry Classification System (NAICS) level. 
+\end{frame}
+
+\begin{frame}{alternate explanation: labor competitiveness}
+	\label{labor}
+	\begin{itemize}
+		\item US manufacturing employment may have fallen after 2000 due to a decline in the competitiveness of US labor-intensive industries for some reason other than the change in US trade policy, such as a general movement toward offshoring encouraged by the 2001 recession or a positive productivity shock in labor-abundant China. 
+		\item the paper controls for these explanations by including measures of industry capital and skill intensity in our specification and by allowing the impact of these industry factor intensities to vary before and after PNTR. 
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{alternate explanation: change in china policy}
+	\label{china}
+	
+	\begin{itemize}
+		\item as part of its accession to the WTO, China agreed to institute a number of pol- icy changes which could have influenced US manufacturing employment, including liberalization of its import tariff rates, export licensing rules, production subsidies and barriers to foreign investment. 
+		\item the paper controls for these policy changes using data on Chinese import tariffs from Brandt et al. (2012), data on export licensing requirements from Krishna, Bai, and Ma (2015), and data on production subsidies from China’s National Bureau of Statistics. Because China’s reduction of barriers to foreign investment may have affected industries differently based on the nature of contracting in their industry, we also include Nunn’s (2007) measure of the proportion of intermediate inputs that require relationship-specific investments. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{alternate explanation: other macroeconomic events}
+\label{other}
+\begin{itemize}
+	\item 1) abolishment of import quotas on some textile and clothing imports in 2002 and 2005 under the global MFA.
+	\item 2) the bursting of the US tech “bubble” and the subsequent recovery. 
+	\item 3) steady decline in unionization in the manufacturing sector. 
+	\item the paper controls for the potential impact of these events using data on US textile and clothing quotas from Khandelwal, Schott, and Wei (2013), definitions of advanced technology products posted on the US Census Bureau’s website, and industry-level unionization rates from Hirsch and MacPherson (2003). 
+\end{itemize}
+	
+\end{frame}
+
+
+\end{document}
+
